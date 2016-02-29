@@ -1,0 +1,137 @@
+\documentclass[12pt]{book}
+
+\usepackage{fontspec} % Allowing setting fonts
+\usepackage{xeCJK}
+\usepackage{amsmath, xltxtra, hyperref, tikz, tcolorbox, sectsty}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{multicol}
+% \usepackage{showframe}
+
+% English and Chinese Fonts
+%\setmainfont{Ubuntu-Light}
+\setCJKmainfont{STSong}
+
+%中文自動換行和彈性間距
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+%設定段落之間的距離
+\setlength{\parskip}{0.3cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+
+\lhead{Produced by Yang Xia}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+\rfoot{}
+
+%設定行距
+\linespread{.5}\selectfont
+
+% Licensing
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={3.0},
+]{doclicense}
+
+% Control spacing
+\usepackage[compact]{titlesec}
+\titlespacing{\chapter}{0pt}{0pt}{11pt}
+\titlespacing{\section}{0pt}{6pt}{0pt}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+\titlespacing{\subsubsection}{0pt}{5pt}{0pt}
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+% SIIT Watermark
+\usepackage{background}
+\backgroundsetup{
+  scale=1.2,
+  angle=0,
+  opacity=.4,
+  color =black,
+  contents={\begin{tikzpicture}[remember picture,overlay]
+        \node at ([yshift=80pt,xshift=-83pt]current page.center) {\includegraphics[width=5cm]{pics/siit-logo}};
+    \end{tikzpicture}}
+}
+
+% Coloured Box
+\usepackage{tcolorbox}
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+\makeatletter
+\newcommand{\mybox}[1]{
+  \setbox0=\hbox{#1}
+  \setlength{\@tempdima}{\dimexpr\wd0+13pt}
+  \begin{tcolorbox}[colframe=mycolor,boxrule=0.5pt,arc=4pt,
+      left=6pt,right=6pt,top=6pt,bottom=6pt,boxsep=0pt,width=\@tempdima]
+    #1
+  \end{tcolorbox}
+}
+\makeatother
+
+% Section with line
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{2em}{}[{\titlerule[0.2pt]}]
+  
+% Define highlight colour
+\usepackage{color}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+\usepackage[left=14mm,right=14mm,top=25mm,bottom=25mm]{geometry}
+\parindent0pt
+\parskip10pt
+\raggedright
+
+\title{NAATI Diploma of Interpreting\\ 隨堂筆記}
+\author{\LARGE{Yang Xia}\\ \\ School of Computer Science \& Software Engineering \\ University of Wollongong \\ \\ \url{https://github.com/yang-xia}}
+\date{}
+
+\begin{document}
+
+\maketitle{}
+
+\begingroup
+\let\cleardoublepage\clearpage
+\tableofcontents
+\thispagestyle{empty}
+\endgroup
+\newpage
+
+\section*{關於這份筆記}
+\begin{tcolorbox}
+\begin{enumerate}
+	\item 這份筆記中的內容由聽課整理而來, 包含目錄和索引, 只要打開PDF閱覽器 (Windows推薦 Adobe\texttrademark\ Reader/Acrobat Pro, Mac推薦系統自帶的 Preview app 或 Skim). 可以看到左邊可以快速導航, 按日期劃分不同的章節, 方便大家以後的復習查閱, 以及快速搜索定位.
+	\item 這份筆記適用於, 但不僅限於SIIT 2016年1月11日開班的DI班的同學.
+	\item 我不能保證本筆記內容的準確性和完整性, 本筆記的完善和補充還需要大家的幫助和支持. 因為該筆記由 \LaTeX\ 排版而成, 因此沒有類似 Word 那樣可以直接編輯的那種\texttt{.docx}文件.
+	\item 本筆記會在每次課後的當晚或第二天進行完善更新, 本筆記的頁眉會顯示本文檔最後編譯時間, 請大家以此時間來判斷本筆記的版本.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\doclicenseThis
+\mybox{\centering \textbf{[注意]}: 您可以自由地複製、散布、展示及演出本作品。但您不得為商業目的而使用本作品。}
+\end{tcolorbox}
+
+\include{chaps/chap1}
+\include{chaps/chap2}
+\include{chaps/chap3}
+\include{chaps/chap4}
+\include{chaps/chap5}
+\include{chaps/chap6}
+\include{chaps/chap7}
+\include{chaps/chap8}
+\include{chaps/chap9}
+\include{chaps/chap10}
+
+\end{document}
