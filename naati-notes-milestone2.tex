@@ -1,4 +1,4 @@
-\documentclass[12pt]{book}
+\documentclass[12pt, oneside]{book}
 
 \usepackage{fontspec} % Allowing setting fonts
 \usepackage{xeCJK}
@@ -6,25 +6,32 @@
 \usepackage{float}
 \usepackage{pdfpages}
 \usepackage{multicol}
+\usepackage[us,12hr]{datetime} % `us' makes \today behave as usual in TeX/LaTeX
+
+% Fancy chapter style
+\usepackage[Bjornstrup]{fncychap}
+%Options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
 
 % English and Chinese Fonts
 %\setmainfont{Ubuntu-Light}
 \setCJKmainfont{STSong}
 
-%中文自動換行和彈性間距
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt
 
 %設定段落之間的距離
 \setlength{\parskip}{0.3cm}
 
+% Header and Footer
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \usepackage{lastpage}
 
-\lhead{Produced by Yang Xia}
+\lhead{Notes of NAATI Interpreting}
 \chead{}
-\rhead{}
+\rhead{Prepared by Yang Xia}
 \lfoot{}
 \cfoot{Page \thepage\ of \pageref{LastPage}}
 \rfoot{}
@@ -92,34 +99,36 @@
 \parskip10pt
 \raggedright
 
-\title{NAATI Diploma of Interpreting\\ 隨堂筆記}
-\author{\LARGE{Yang Xia}\\ \\ School of Computer Science \& Software Engineering \\ University of Wollongong \\ \\ \url{https://github.com/yang-xia}}
+\title{\textbf{NAATI Diploma of Interpreting}\\ 隨堂筆記 \\ \includegraphics[scale=0.6]{pics/cover}}
+\author{\LARGE{Yang Xia}\\ \\ School of Computer Science \& Software Engineering \\ University of Wollongong \\ \\ \url{https://github.com/yang-xia/} \\}
 \date{}
+
 
 \begin{document}
 
-\maketitle{}
-
+\begin{titlepage}
+\maketitle
 \begingroup
 \let\cleardoublepage\clearpage
-\tableofcontents
 \thispagestyle{empty}
 \endgroup
+\end{titlepage}
+
 \newpage
 
-\section*{關於這份筆記}
-\begin{tcolorbox}
-\begin{enumerate}
-	\item 這份筆記中的內容由聽課整理而來, 包含目錄和索引, 打開PDF閱覽器可以看到左邊可以快速導航, 按日期劃分不同的章節, 方便大家以後的復習查閱, 以及快速搜索定位.
-	\item 這份筆記適用於, 但不僅限於SIIT 2016年1月11日開班的DI班的同學.
-	\item 我不能保證本筆記內容的準確性和完整性. 因為該筆記由 \LaTeX\ 排版而成, 因此沒有類似 Word 那樣可以直接編輯的那種\texttt{.docx}文件.
-	\item 本筆記會在每次課後的當晚或第二天完善更新, 大家可以定期到\url{https://github.com/yang-xia}找到最新版本.
-\end{enumerate}
-\end{tcolorbox}
+\begin{bottompar}
+\begin{center}
+	\copyright\ Copyright \the\year\ Yang Xia. Last update {\ddmmyyyydate\today}
+	
+	This work may be freely copied and distributed in any medium.\\
+	It may not be sold for more than the actual cost of reproduction, storage, or transmittal.\\
+	This work is available under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.\\
+	For license details, see \url{http://creativecommons.org/licenses/by-nc-sa/4.0/}.\\
+	For the most recent edition, see \url{https://github.com/yang-xia/}.
+\end{center}
+\end{bottompar}
 
-\begin{tcolorbox}
-\doclicenseThis
-\end{tcolorbox}
+\tableofcontents
 
 \include{chaps/chap1}
 \include{chaps/chap2}
